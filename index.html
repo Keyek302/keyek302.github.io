@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keyek Code Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f3fb; --ink:#201a33; --muted:#6a6382; --card:#ffffff; --line:#ded7ee;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#16122a; --ink:#f1edfc; --muted:#a9a2c4; --card:#211b3d; --line:#38305c;}
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+main{max-width:960px;margin:0 auto;padding:48px 20px 64px}
+h1{font-size:clamp(2.4rem,9vw,4.6rem);line-height:1;letter-spacing:-.03em;font-weight:800;margin:0 0 14px}
+.sub{color:var(--muted);font-size:1.1rem;max-width:34em;margin:0 0 40px}
+h2{font-size:1.15rem;font-weight:700;margin:40px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;text-decoration:none}
+.top{height:140px;background:var(--c);overflow:hidden}
+.top svg{width:100%;height:100%;display:block}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.body h3{margin:0;font-size:1.25rem;letter-spacing:-.01em}
+.body p{margin:0;color:var(--muted);font-size:.95rem;flex:1}
+.go{margin-top:10px;font-weight:700;font-size:.95rem}
+a.card:hover{border-color:var(--ink)}
+a.card:focus-visible{outline:3px solid #7c4dff;outline-offset:3px}
+.soon .go{color:var(--muted);font-weight:400}
+.brand{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:16px;margin-bottom:28px}
+.logo{flex:none;border-radius:18px;background:#6d3df5;color:#fff;padding:12px 20px;font-weight:800;font-size:clamp(1.8rem,8vw,2.6rem);letter-spacing:.04em;font-family:ui-monospace,Menlo,Consolas,monospace;line-height:1}
+.logo span{color:#ffd84d}
+.bmc{display:inline-flex;align-items:center;gap:10px;background:#ffdd00;color:#1a1a1a;text-decoration:none;font-weight:700;font-size:1rem;padding:11px 20px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.2);transition:transform .15s}
+.bmc:hover{transform:translateY(-1px)}
+.bmc-icon{width:48px;height:48px;padding:0;gap:0;justify-content:center;flex:none}
+.bmc-icon svg{width:24px;height:24px}
+.bmc:focus-visible{outline:3px solid #7c4dff;outline-offset:3px}
+.bmc svg{width:20px;height:20px;flex:none}
+footer{text-align:center;padding-top:36px;border-top:1px solid var(--line)}
+footer p{margin:18px 0 0}
+footer{margin-top:56px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><div class="logo" role="img" aria-label="KE{Y}EK logo">KE<span>{Y}</span>EK</div><a class="bmc bmc-icon" aria-label="Buy me a coffee" title="Buy me a coffee" href="https://buymeacoffee.com/keyek" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v4a6 6 0 0 1-6 6 6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M11 3v2M14 3v2"/></svg></a></div>
+  <h1>Keyek Code Studio</h1>
+  <p class="sub">Games and apps I build. Tap any card to open it.</p>
+
+  <h2>Apps</h2>
+  <div class="grid" id="apps"></div>
+
+  <h2>Games</h2>
+  <div class="grid" id="games"></div>
+
+  <footer><a class="bmc" href="https://buymeacoffee.com/keyek" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v4a6 6 0 0 1-6 6 6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M11 3v2M14 3v2"/></svg>Buy me a coffee</a><p>Enjoying the games? Your support keeps new ones coming.<br>Keyek Code Studio. Built by Josh.</p></footer>
+</main>
+
+<script>
+/* EDIT HERE: put each project's real link in "url". Leave it "" to show "Link coming soon". */
+const games = [
+  {name:"Blocktopia", icon:"🧱", color:"#cfe3ff", desc:"Roblox-style minigame hub: Steal the Brainrot, Coin Grab, Obby, Lava Climb and more. Play online with room codes.", url:"https://keyek302.github.io/Blocktopia/"},
+  {name:"Pipe Merge", icon:"🔮", color:"#e3d6ff", desc:"Slide items onto the table, merge matching pairs and reach the goal item. Shop with skins and effects.", url:"https://keyek302.github.io/PipeMerge/"},
+  {name:"Bingo", icon:"🎱", color:"#ffe3f1", desc:"Easy-to-read bingo with called numbers, a ball blower, star-coin shop and up to 4 boards at once.", url:"https://keyek302.github.io/Bingo/"},
+  {name:"Sweet Pop", icon:"🍬", color:"#ffe9c9", desc:"Match-3 puzzle with jelly, locked tiles and hints. No ads and no paywalls.", url:"https://keyek302.github.io/SweetPop/"},
+  {name:"Medieval RPG", icon:"🐉", color:"#d6f2dc", desc:"Old school RuneScape-style RPG: skills, 28-slot inventory, banks, slayer, dragons and a big world.", url:""},
+  {name:"Dino Explorer", icon:"🦖", color:"#d9f0c8", desc:"First-person world with friendly dinosaurs, tree chopping, crafting and a small village.", url:""},
+  {name:"Arrow Puzzles", icon:"", color:"#dbe7ff", desc:"Arrow puzzles to solve.", url:"https://keyek302.github.io/ArrowPuzzles"}
+];
+const apps = [
+  {name:"Shift Watch", icon:"⏱️", color:"#d4f1f4", desc:"An earnings stopwatch for hourly workers. Time is money. Literally.", url:"https://shiftwatch.coddy.build"}
+];
+const S=b=>`<svg viewBox='0 0 300 140' preserveAspectRatio='xMidYMid slice' aria-hidden='true'>${b}</svg>`;
+const art={
+'Blocktopia':S(`<circle cx='255' cy='28' r='14' fill='#ffd84d'/><rect y='95' width='300' height='45' fill='#6cc36a'/><rect x='40' y='61' width='34' height='34' fill='#e8643c'/><rect x='74' y='61' width='34' height='34' fill='#f2b134'/><rect x='57' y='27' width='34' height='34' fill='#4a8df0'/><ellipse cx='215' cy='74' rx='30' ry='38' fill='none' stroke='#7c4dff' stroke-width='9'/><ellipse cx='215' cy='74' rx='20' ry='28' fill='#c9b6ff'/>`),
+'Pipe Merge':S(`<polygon points='40,125 80,55 220,55 260,125' fill='#8a5a3c'/><polygon points='80,55 220,55 214,48 86,48' fill='#a87250'/><circle cx='120' cy='90' r='16' fill='#7c4dff'/><rect x='143' y='44' width='14' height='40' rx='6' fill='#4cc3a8'/><circle cx='150' cy='88' r='22' fill='#4cc3a8'/><circle cx='188' cy='94' r='14' fill='#f06fa8'/>`),
+'Bingo':S(`<rect x='60' y='14' width='110' height='112' rx='10' fill='#fff' stroke='#c04f94' stroke-width='3'/>${[0,1,2,3,4,5,6,7,8].map(i=>`<circle cx='${88+27*(i%3)}' cy='${42+28*Math.floor(i/3)}' r='9' fill='${[0,4,5,8].includes(i)?'#c04f94':'#f3d3e6'}'/>`).join('')}<circle cx='230' cy='70' r='34' fill='#7c4dff'/><text x='230' y='81' text-anchor='middle' font-size='30' font-weight='800' fill='#fff' font-family='sans-serif'>B7</text>`),
+'Sweet Pop':S([...Array(18)].map((_,i)=>`<circle cx='${48+40*(i%6)}' cy='${30+40*Math.floor(i/6)}' r='17' fill='${['#f0527a','#f7a63b','#6cc36a','#4a8df0','#9b5de5'][(i*7+Math.floor(i/6))%5]}'/>`).join('')),
+'Medieval RPG':S(`<circle cx='245' cy='32' r='16' fill='#ffd84d'/><rect y='100' width='300' height='40' fill='#5aa05a'/><rect x='95' y='50' width='110' height='56' fill='#8d8d9a'/><rect x='95' y='38' width='20' height='14' fill='#8d8d9a'/><rect x='140' y='38' width='20' height='14' fill='#8d8d9a'/><rect x='185' y='38' width='20' height='14' fill='#8d8d9a'/><path d='M135 106 v-26 a15 15 0 0 1 30 0 v26z' fill='#5b4636'/><path d='M25 42 q28 -26 56 0 q-28 -8 -56 0z' fill='#c0392b'/>`),
+'Dino Explorer':S(`<rect y='100' width='300' height='40' fill='#6cc36a'/><polygon points='40,100 60,45 80,100' fill='#2f7d46'/><polygon points='235,100 255,50 275,100' fill='#2f7d46'/><ellipse cx='150' cy='80' rx='42' ry='22' fill='#7a9e3a'/><path d='M108 80 q-40 -5 -62 18 q40 -6 62 -2z' fill='#7a9e3a'/><rect x='180' y='40' width='14' height='42' rx='6' fill='#7a9e3a'/><ellipse cx='198' cy='40' rx='20' ry='12' fill='#7a9e3a'/><circle cx='204' cy='36' r='3' fill='#222'/><rect x='135' y='96' width='10' height='20' fill='#5f7e2c'/><rect x='160' y='96' width='10' height='20' fill='#5f7e2c'/>`),
+'Shift Watch':S(`<rect x='138' y='10' width='24' height='14' rx='4' fill='#2b6f77'/><circle cx='150' cy='80' r='50' fill='#fff' stroke='#2b6f77' stroke-width='8'/><line x1='150' y1='80' x2='150' y2='46' stroke='#2b6f77' stroke-width='5' stroke-linecap='round'/><line x1='150' y1='80' x2='174' y2='92' stroke='#e8643c' stroke-width='5' stroke-linecap='round'/><text x='215' y='60' font-size='34' font-weight='800' fill='#2b8a4e' font-family='sans-serif'>$</text>`),
+'Arrow Puzzles':S(`<path d='M50 40 h80 m-24 -24 l24 24 l-24 24' fill='none' stroke='#4a8df0' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/><path d='M230 20 v80 m-24 -24 l24 24 l24 -24' fill='none' stroke='#f0527a' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/><path d='M250 120 h-120 m24 -24 l-24 24 l24 24' fill='none' stroke='#6cc36a' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/>`),
+'Keyek Code Studio':S(`<text x='150' y='88' text-anchor='middle' font-size='54' font-weight='800' fill='#6d3df5' font-family='ui-monospace,Menlo,Consolas,monospace'>KE{Y}EK</text>`)
+};
+function render(list, id){
+  const el = document.getElementById(id);
+  list.forEach(p=>{
+    const live = !!p.url;
+    const a = document.createElement(live ? "a" : "div");
+    a.className = "card" + (live ? "" : " soon");
+    if(live){ a.href = p.url; a.target = "_blank"; a.rel = "noopener"; }
+    a.innerHTML = '<div class="top" style="--c:'+p.color+'">'+(art[p.name]||'')+'</div>'+
+      '<div class="body"><h3>'+p.name+'</h3><p>'+p.desc+'</p>'+
+      '<span class="go">'+(live ? "Open" : "Link coming soon")+'</span></div>';
+    el.appendChild(a);
+  });
+}
+render(games,"games"); render(apps,"apps");
+</script>
+</body>
+</html>
