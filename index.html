@@ -92,7 +92,9 @@ const games = [
   {name:"Arrow Puzzles", icon:"", color:"#dbe7ff", desc:"Arrow puzzles to solve.", url:"https://keyek302.github.io/ArrowPuzzles"},
   {name:"Dress-Up Dreams", icon:"", color:"#f3dcff", desc:"Dress-up game with princesses.", url:"https://keyek302.github.io/DressupDreams/"},
   {name:"Tycoon Town", icon:"", color:"#d9f5e6", desc:"Kid-friendly board game. Play online.", url:"https://keyek302.github.io/TycoonTown/"},
-  {name:"Block Fill", icon:"", color:"#ffe0d6", desc:"Block puzzle. Fill rows and columns.", url:"https://keyek302.github.io/BlockFill/"}
+  {name:"Block Fill", icon:"", color:"#ffe0d6", desc:"Block puzzle. Fill rows and columns.", url:"https://keyek302.github.io/BlockFill/"},
+  {name:"Dead Acre", icon:"", color:"#2a3328", desc:"2D zombie survival. Craft and build.", url:"https://keyek302.github.io/DeadAcre/"},
+  {name:"Lucky Lounge", icon:"", color:"#3b1d4a", desc:"Casino game. Play for fun.", url:"https://keyek302.github.io/LuckyLounge/"}
 ];
 const apps = [
   {name:"Shift Watch", icon:"⏱️", color:"#d4f1f4", desc:"Earnings stopwatch for work shifts.", url:"https://keyek302.github.io/ShiftWatch/"},
@@ -113,6 +115,8 @@ const art={
 'Tycoon Town':S(`<rect x='95' y='15' width='110' height='110' rx='8' fill='#f3efe0'/>${['#8d5a3c','#4a8df0','#f0527a','#f7a63b','#6cc36a'].map((c,i)=>`<rect x='${95+22*i}' y='15' width='22' height='16' fill='${c}'/><rect x='${95+22*i}' y='109' width='22' height='16' fill='${c}'/>`).join('')}${[0,1,2].map(i=>`<rect x='95' y='${31+26*i}' width='16' height='26' fill='${['#9b5de5','#4cc3a8','#ffd84d'][i]}'/><rect x='189' y='${31+26*i}' width='16' height='26' fill='${['#ffd84d','#4cc3a8','#9b5de5'][i]}'/>`).join('')}<path d='M150 50 l24 20 h-7 v24 h-34 v-24 h-7z' fill='#e8643c'/><rect x='218' y='62' width='32' height='32' rx='7' fill='#fff' stroke='#444' stroke-width='2'/><circle cx='228' cy='72' r='3' fill='#222'/><circle cx='240' cy='84' r='3' fill='#222'/><circle cx='228' cy='84' r='3' fill='#222'/><circle cx='240' cy='72' r='3' fill='#222'/><circle cx='60' cy='62' r='16' fill='#ffd84d' stroke='#e9a23b' stroke-width='4'/>`),
 'Block Fill':S(`<rect x='88' y='10' width='120' height='120' rx='8' fill='#6d3df5'/>`+[...Array(36)].map((_,i)=>{const r=Math.floor(i/6),c=i%6;const on=r>=4?(r==5||c!=4):(r==3&&c<2);return `<rect x='${92+19*c}' y='${14+19*r}' width='17' height='17' rx='3' fill='${on?['#f0527a','#f7a63b','#4a8df0','#6cc36a','#9b5de5','#ffd84d'][(r*2+c)%6]:'#ffffff'}'/>`}).join('')+`<rect x='230' y='40' width='17' height='17' rx='3' fill='#ffd84d'/><rect x='230' y='59' width='17' height='17' rx='3' fill='#ffd84d'/><rect x='230' y='78' width='17' height='17' rx='3' fill='#ffd84d'/><rect x='249' y='78' width='17' height='17' rx='3' fill='#ffd84d'/>`),
 'Flip Deck':S(`<rect x='95' y='28' width='110' height='80' rx='10' fill='#9b7bff' transform='rotate(-8 150 68)'/><rect x='95' y='28' width='110' height='80' rx='10' fill='#fff' stroke='#6d3df5' stroke-width='3' transform='rotate(6 150 68)'/><text x='150' y='84' text-anchor='middle' font-size='46' font-weight='800' fill='#6d3df5' font-family='sans-serif' transform='rotate(6 150 68)'>?</text><path d='M236 40 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z' fill='#ffd84d'/>`),
+'Dead Acre':S(`<rect width='300' height='140' fill='#2a3328'/><circle cx='240' cy='32' r='16' fill='#f2edc0'/><rect y='100' width='300' height='40' fill='#3d4a35'/><path d='M40 120 v-30 a14 14 0 0 1 28 0 v30z' fill='#8a8f99'/><rect x='110' y='70' width='28' height='9' fill='#8fbf7a'/><rect x='162' y='70' width='28' height='9' fill='#8fbf7a'/><rect x='136' y='66' width='28' height='34' fill='#5b6b8a'/><rect x='138' y='100' width='10' height='20' fill='#3b3b4f'/><rect x='152' y='100' width='10' height='20' fill='#3b3b4f'/><circle cx='150' cy='52' r='14' fill='#8fbf7a'/><circle cx='145' cy='50' r='2.5' fill='#222'/><circle cx='155' cy='50' r='2.5' fill='#222'/>`),
+'Lucky Lounge':S(`<rect width='300' height='140' fill='#3b1d4a'/><circle cx='95' cy='88' r='34' fill='#e0364a'/><circle cx='95' cy='88' r='25' fill='none' stroke='#fff' stroke-width='4' stroke-dasharray='8 6'/><circle cx='95' cy='88' r='13' fill='#e0364a' stroke='#fff' stroke-width='3'/><circle cx='140' cy='50' r='24' fill='#3a7bd5'/><circle cx='140' cy='50' r='17' fill='none' stroke='#fff' stroke-width='3' stroke-dasharray='6 5'/><rect x='172' y='26' width='60' height='86' rx='8' fill='#fff' transform='rotate(-10 202 69)'/><text x='186' y='62' font-size='30' font-weight='800' fill='#e0364a' font-family='sans-serif' transform='rotate(-10 202 69)'>A</text><text x='191' y='98' font-size='34' fill='#e0364a' font-family='sans-serif' transform='rotate(-10 202 69)'>♥</text><path d='M262 24 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z' fill='#ffd84d'/>`),
 'Arrow Puzzles':S(`<path d='M50 40 h80 m-24 -24 l24 24 l-24 24' fill='none' stroke='#4a8df0' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/><path d='M230 20 v80 m-24 -24 l24 24 l24 -24' fill='none' stroke='#f0527a' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/><path d='M250 120 h-120 m24 -24 l-24 24 l24 24' fill='none' stroke='#6cc36a' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/>`),
 'Keyek Code Studio':S(`<text x='150' y='88' text-anchor='middle' font-size='54' font-weight='800' fill='#6d3df5' font-family='ui-monospace,Menlo,Consolas,monospace'>KE{Y}EK</text>`)
 };
@@ -129,10 +133,10 @@ function render(list, id){
     el.appendChild(a);
   });
 }
-const feat=games.concat(apps).find(p=>p.name==='Flip Deck');
+const feat=games.concat(apps).find(p=>p.name==='Dead Acre');
 render(games.filter(p=>p!==feat),'games'); render(apps.filter(p=>p!==feat),'apps');
 const h=document.createElement('a');h.className='hero';h.href=feat.url;h.target='_blank';h.rel='noopener';h.style.setProperty('--c',feat.color);
-h.innerHTML='<div class="top">'+art[feat.name].replace('slice','meet')+'</div><div class="info"><span class="badge">NEW</span><h2>'+feat.name+'</h2><p>'+feat.desc+'</p><span class="play">Open now</span></div>';
+h.innerHTML='<div class="top">'+art[feat.name].replace('slice','meet')+'</div><div class="info"><span class="badge">NEW</span><h2>'+feat.name+'</h2><p>'+feat.desc+'</p><span class="play">'+(apps.includes(feat)?'Open now':'Play now')+'</span></div>';
 document.getElementById('hero').appendChild(h);
 </script>
 </body>
